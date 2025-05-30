@@ -111,10 +111,6 @@ public class PlayerBodyController : MonoBehaviour
         {
             movementCoroutine = StartCoroutine(MovePlayer(xMovement, yMovement));
         }
-        else
-        {
-            //StopCoroutine(movementCoroutine);
-        }
     }
     
     private IEnumerator MovePlayer(float xMovement, float yMovement)
@@ -136,6 +132,11 @@ public class PlayerBodyController : MonoBehaviour
     
     private void OnTriggerEnter(Collider other)
     {
+        if (other.TryGetComponent(out ParticlePlayer pp))
+        {
+            return;
+        }
+        
         playerDefeat.gameObject.transform.SetParent(null);
         GetComponent<MeshRenderer>().enabled = false;
         playerDefeat.gameObject.SetActive(true);
