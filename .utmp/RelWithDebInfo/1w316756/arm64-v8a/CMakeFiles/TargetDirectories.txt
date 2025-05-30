@@ -1,0 +1,5 @@
+C:/Users/gabed/_Varlab/MobileAutoRPG/.utmp/RelWithDebInfo/1w316756/arm64-v8a/CMakeFiles/edit_cache.dir
+C:/Users/gabed/_Varlab/MobileAutoRPG/.utmp/RelWithDebInfo/1w316756/arm64-v8a/CMakeFiles/rebuild_cache.dir
+C:/Users/gabed/_Varlab/MobileAutoRPG/.utmp/RelWithDebInfo/1w316756/arm64-v8a/GameActivity/CMakeFiles/game.dir
+C:/Users/gabed/_Varlab/MobileAutoRPG/.utmp/RelWithDebInfo/1w316756/arm64-v8a/GameActivity/CMakeFiles/edit_cache.dir
+C:/Users/gabed/_Varlab/MobileAutoRPG/.utmp/RelWithDebInfo/1w316756/arm64-v8a/GameActivity/CMakeFiles/rebuild_cache.dir

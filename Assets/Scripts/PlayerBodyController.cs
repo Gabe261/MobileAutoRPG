@@ -117,25 +117,20 @@ public class PlayerBodyController : MonoBehaviour
         }
     }
     
-
     private IEnumerator MovePlayer(float xMovement, float yMovement)
     {
         float iterations = 15, movementJump = 0.1f, holdDelay = 0.4f, smoothPause = 0.01f;
-        Debug.Log("START");
         for (int i = 0; i < iterations; i++)
         {
             transform.position = new Vector3(transform.position.x + xMovement, transform.position.y + yMovement, transform.position.z);
             yield return new WaitForSeconds(smoothPause);
         }
-        Debug.Log("HOLD");
         yield return new WaitForSeconds(holdDelay);
-        Debug.Log("RETURN");
         for (int i = 0; i < iterations; i++)
         {
             transform.position = new Vector3(transform.position.x - xMovement, transform.position.y - yMovement, transform.position.z);
             yield return new WaitForSeconds(smoothPause);
         }
-        Debug.Log("COMPLETE");
         movementCoroutine = null;
     }
     
