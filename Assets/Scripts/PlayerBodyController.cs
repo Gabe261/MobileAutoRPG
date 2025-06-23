@@ -30,6 +30,12 @@ public class PlayerBodyController : MonoBehaviour
         
         movementCoroutine = null;
         InitializeAnimations();
+        StartWalk();
+    }
+
+    private void StartWalk()
+    {
+        appearanceAnimator.Play("Walk");
     }
 
     private void InitializeAnimations()
@@ -141,8 +147,11 @@ public class PlayerBodyController : MonoBehaviour
     {
         Debug.Log("Playing animation: " + animationLinks[index][0] + " AND: " + animationLinks[index][1]);
         
-        controlAnimator.Play(animationLinks[index][0]);
-        appearanceAnimator.Play(animationLinks[index][1]);
+        // controlAnimator.Play(animationLinks[index][0]);
+        // appearanceAnimator.Play(animationLinks[index][1]);
+        
+        controlAnimator.CrossFade(animationLinks[index][0], .2f);
+        appearanceAnimator.CrossFade(animationLinks[index][1], .2f);
     }
     
 
