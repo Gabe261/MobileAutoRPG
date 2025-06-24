@@ -12,7 +12,8 @@ public class PlayerBodyController : MonoBehaviour
 	[SerializeField] private float speed;
 
     public UnityEvent OnPlayerHit;
-
+    public UnityEvent OnPlayerWin;
+    
     private Vector2 startTouch;
     private Vector2 endTouch;
     
@@ -26,6 +27,7 @@ public class PlayerBodyController : MonoBehaviour
     private void Start()
     {
         OnPlayerHit ??= new UnityEvent();
+        OnPlayerWin ??= new UnityEvent();
         playerDefeat.gameObject.SetActive(false);
         
         movementCoroutine = null;
@@ -184,6 +186,7 @@ public class PlayerBodyController : MonoBehaviour
     {
         if (other.TryGetComponent(out ParticlePlayer pp))
         {
+            OnPlayerWin?.Invoke();
             return;
         }
         
@@ -199,6 +202,13 @@ public class PlayerBodyController : MonoBehaviour
         OnPlayerHit?.Invoke();
     }
 
+    public void PlayerReset()
+    {
+        playerAlive.gameObject.SetActive(true);
+        playerDefeat.gameObject.SetActive(false);
+    }
+    
+    
     private Vector3 RandomForce()
     {
         float forceAmount = 3f;
