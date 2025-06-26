@@ -23,6 +23,22 @@ public class PlayerBodyController : MonoBehaviour
     [SerializeField] private Animator appearanceAnimator;
     
     private List<string[]> animationLinks = new List<string[]>();
+
+    private bool breakableObjectReady;
+    private bool hoppable;
+    private IObstacle obstacleToAction;
+
+    public void SetBreakable(IObstacle obstacle)
+    {
+        breakableObjectReady = true;
+        obstacleToAction = obstacle;
+    }
+
+    public void SetHopable(IObstacle obstacle)
+    {
+        hoppable = true;
+        obstacleToAction = obstacle;
+    }
     
     private void Start()
     {
@@ -51,7 +67,7 @@ public class PlayerBodyController : MonoBehaviour
         strings = new string[] {"Slide", "Ground"}; // 2
         animationLinks.Add(strings);
         
-        strings = new string[] {"Jump", "Air"}; // 3
+        strings = new string[] {"Jump", "Air", "Flip"}; // 3
         animationLinks.Add(strings);
         
         strings = new string[] {"Style", "Poke"}; // 4
@@ -113,6 +129,11 @@ public class PlayerBodyController : MonoBehaviour
 
     private void HandleTap()
     {
+        if (breakableObjectReady)
+        {
+            breakableObjectReady = false;
+            obstacleToAction.PerformAction();
+        }
         PlayAnimations(4);
         Debug.Log("Tap");
     }
@@ -133,7 +154,15 @@ public class PlayerBodyController : MonoBehaviour
 
     private void HandleUp()
     {
-        PlayAnimations(3);
+        if (hoppable)
+        {
+            hoppable = false;
+            PlayAnimations(3, true);
+        }
+        else
+        {
+             PlayAnimations(3);
+        }
         //StartMoveCoroutine(0, 0.1f);
         Debug.Log("Up");
     }
@@ -145,15 +174,22 @@ public class PlayerBodyController : MonoBehaviour
         Debug.Log("Down");
     }
 
-    private void PlayAnimations(int index)
+    private void PlayAnimations(int index, bool alternate = false)
     {
-        Debug.Log("Playing animation: " + animationLinks[index][0] + " AND: " + animationLinks[index][1]);
+        //Debug.Log("Playing animation: " + animationLinks[index][0] + " AND: " + animationLinks[index][1]);
         
         // controlAnimator.Play(animationLinks[index][0]);
         // appearanceAnimator.Play(animationLinks[index][1]);
         
         controlAnimator.CrossFade(animationLinks[index][0], .2f);
-        appearanceAnimator.CrossFade(animationLinks[index][1], .2f);
+        if (alternate)
+        {
+            appearanceAnimator.CrossFade(animationLinks[index][2], .2f);
+        }
+        else
+        {
+            appearanceAnimator.CrossFade(animationLinks[index][1], .2f);
+        }
     }
     
 
