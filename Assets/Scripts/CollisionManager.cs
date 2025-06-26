@@ -3,6 +3,21 @@ using UnityEngine;
 public class CollisionManager : MonoBehaviour
 {
     [SerializeField] private PlayerBodyController playerBodyController;
+
+    [SerializeField] private Transform rayTransform;
+    
+    private void Update()
+    {
+        //Debug.DrawRay(rayTransform.position, rayTransform.forward*5, Color.red);
+        if (Physics.Raycast(rayTransform.position, rayTransform.forward, out RaycastHit hit, 5f))
+        {
+            playerBodyController.SetDontDodge(false);
+        }
+        else
+        {
+            playerBodyController.SetDontDodge(true);
+        }
+    }
     
     private void OnTriggerEnter(Collider other)
     {
@@ -18,7 +33,6 @@ public class CollisionManager : MonoBehaviour
                         playerBodyController.SetBreakable(obstacle);
                         break;
                     case ObstacleTypes.Low:
-                        Debug.Log("=== LOW");
                         playerBodyController.SetHopable(obstacle);
                         break;
                     default:

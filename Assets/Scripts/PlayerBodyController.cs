@@ -26,6 +26,7 @@ public class PlayerBodyController : MonoBehaviour
 
     private bool breakableObjectReady;
     private bool hoppable;
+    private bool dontdodge;
     private IObstacle obstacleToAction;
 
     public void SetBreakable(IObstacle obstacle)
@@ -38,6 +39,11 @@ public class PlayerBodyController : MonoBehaviour
     {
         hoppable = true;
         obstacleToAction = obstacle;
+    }
+
+    public void SetDontDodge(bool toEnable)
+    {
+        dontdodge = toEnable;
     }
     
     private void Start()
@@ -147,7 +153,15 @@ public class PlayerBodyController : MonoBehaviour
 
     private void HandleRight()
     {
-        PlayAnimations(1);
+        if (dontdodge)
+        {
+            playerAlive.gameObject.SetActive(false);
+            playerDefeat.gameObject.SetActive(true);
+        }
+        else
+        {
+           PlayAnimations(1); 
+        }
         //StartMoveCoroutine(0.1f, 0);
         Debug.Log("Right");
     }
