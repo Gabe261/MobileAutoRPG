@@ -138,7 +138,7 @@ public class PlayerBodyController : MonoBehaviour
         if (breakableObjectReady)
         {
             breakableObjectReady = false;
-            obstacleToAction.PerformAction();
+            //obstacleToAction.PerformAction(this);
         }
         PlayAnimations(4);
         Debug.Log("Tap");
@@ -168,8 +168,10 @@ public class PlayerBodyController : MonoBehaviour
 
     private void HandleUp()
     {
+        Debug.Log("Up");
         if (hoppable)
         {
+            Debug.Log("Up UP");
             hoppable = false;
             PlayAnimations(3, true);
         }

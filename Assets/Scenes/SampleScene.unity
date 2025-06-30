@@ -7779,6 +7779,60 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 794206470}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &805919820
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 805919822}
+  - component: {fileID: 805919821}
+  m_Layer: 0
+  m_Name: Player Future Pos
+  m_TagString: Untagged
+  m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!95 &805919821
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 805919820}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 3ca09d00e47f9a54da8db646fce0cb31, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!4 &805919822
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 805919820}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 1, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &814599556
 GameObject:
   m_ObjectHideFlags: 0
@@ -8380,7 +8434,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c51e1745208f4f448986fc8c743475a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerBodyController: {fileID: 1562609904}
+  playerAnimationController: {fileID: 1562609907}
   rayTransform: {fileID: 1394509328}
 --- !u!65 &974948872
 BoxCollider:
@@ -8646,6 +8700,37 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1041956831}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1071475942
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1071475943}
+  m_Layer: 0
+  m_Name: RayStart
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &1071475943
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1071475942}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 2.86, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1865223036}
+  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!1 &1123243178
 GameObject:
   m_ObjectHideFlags: 0
@@ -10714,6 +10799,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1562609900}
+  - component: {fileID: 1562609907}
   - component: {fileID: 1562609906}
   - component: {fileID: 1562609904}
   - component: {fileID: 1562609905}
@@ -10748,7 +10834,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1562609899}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2f186d076866ad74db34082d1d630f21, type: 3}
   m_Name: 
@@ -10837,6 +10923,27 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1562609907
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1562609899}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1b9ced3ed4b5b54db59d5a01f4db0b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tap: {fileID: 11400000, guid: f6462facf5bb93e4c81b5e42ac0473a7, type: 2}
+  doubleTap: {fileID: 11400000, guid: a0a4a569d1052524290b7c56a530e912, type: 2}
+  hold: {fileID: 11400000, guid: b2df30349bf3b994b9fdc07d3da40af4, type: 2}
+  leftSwipe: {fileID: 11400000, guid: 5a508e1acab33ce48933b26915bd92d8, type: 2}
+  rightSwipe: {fileID: 11400000, guid: 38dbf978028d2ef469d3b397ab1d5be8, type: 2}
+  upSwipe: {fileID: 11400000, guid: b240a74bfbd5a444a9247845229fa56e, type: 2}
+  downSwipe: {fileID: 11400000, guid: 4ad46932c9481844c9e83c4ff89b180d, type: 2}
+  controlAnimator: {fileID: 1562609906}
+  appearanceAnimator: {fileID: 479359008}
 --- !u!1 &1580062948
 GameObject:
   m_ObjectHideFlags: 0
@@ -11567,6 +11674,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1865223036}
   - component: {fileID: 1865223035}
+  - component: {fileID: 1865223037}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -11612,8 +11720,25 @@ Transform:
   - {fileID: 405348968}
   - {fileID: 1562609900}
   - {fileID: 974948870}
+  - {fileID: 1071475943}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1865223037
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1865223034}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 925e897b1b790e544966658dfe75667e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  multiplier: 0.07
+  speed: 0
+  isPlaying: 1
+  rayStart: {fileID: 1071475943}
 --- !u!1 &1870750244
 GameObject:
   m_ObjectHideFlags: 0
@@ -12144,6 +12269,8 @@ PlayableDirector:
     value: {fileID: 1483075560}
   - key: {fileID: -42004564933002442, guid: 99d014599d0a60d4183ab652c488f111, type: 2}
     value: {fileID: 330585547}
+  - key: {fileID: 3932392686826018399, guid: 99d014599d0a60d4183ab652c488f111, type: 2}
+    value: {fileID: 805919821}
   m_ExposedReferences:
     m_References: []
 --- !u!4 &1946686808
@@ -12838,3 +12965,4 @@ SceneRoots:
   - {fileID: 1483075561}
   - {fileID: 643531147}
   - {fileID: 1228042903}
+  - {fileID: 805919822}

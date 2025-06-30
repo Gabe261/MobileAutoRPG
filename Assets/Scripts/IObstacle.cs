@@ -1,5 +1,5 @@
 public interface IObstacle
 {
     public ObstacleTypes GetObstacleType();
-    public void PerformAction();
+    public void PerformAction(PlayerAnimationController player);
 }
